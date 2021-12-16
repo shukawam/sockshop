@@ -10,8 +10,12 @@ metadata:
   name: front-end
   labels:
     app: front-end
+  annotations:
+    service.beta.kubernetes.io/oci-load-balancer-shape: "flexible"
+    service.beta.kubernetes.io/oci-load-balancer-shape-flex-max: "20"
+    service.beta.kubernetes.io/oci-load-balancer-shape-flex-min: "10"
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ports:
   - port: 80
     targetPort: 8079
